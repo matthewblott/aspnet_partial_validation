@@ -1,19 +1,15 @@
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace aspnet_html5_validation
+namespace aspnet_partial_validation
 {
   [HtmlTargetElement("input", Attributes = "asp-for")]
   [HtmlTargetElement("textarea", Attributes = "asp-for")]
   [HtmlTargetElement("select", Attributes = "asp-for")]
   public class RequiredTagHelper : TagHelper
   {
-//    public override int Order { get; } = int.MaxValue;
-    
     [HtmlAttributeName("asp-for")]
     public ModelExpression For { get; set; }
     
@@ -27,8 +23,6 @@ namespace aspnet_html5_validation
         
         if (isRequired)
         {
-          //output.Attributes.Add("required", "required");
-          
           var attr = new TagHelperAttribute("required", string.Empty, HtmlAttributeValueStyle.Minimized);
 
           output.Attributes.Add(attr);
@@ -45,10 +39,6 @@ namespace aspnet_html5_validation
             
           }
         }
-        
-        
-        
-        // tagBuilder.MergeAttribute("required", string.Empty);
 
         foreach (var attribute in output.Attributes)
         {

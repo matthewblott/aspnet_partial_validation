@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Net.WebSockets;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
@@ -9,21 +10,24 @@ namespace aspnet_partial_validation.Components
   {
     public IViewComponentResult Invoke (ModelExpression aspFor)
     {
-      var metadata = aspFor.ModelExplorer.Metadata.ValidatorMetadata;
+      var metadata = aspFor.Metadata;
+
+      var idName = aspFor.Name;
+      var prompt = metadata.Placeholder;
+      var isRequired = metadata.IsRequired;
+      var isReadOnly = metadata.IsReadOnly;
       
-      for (var i = 0; i < metadata.Count; i++)
-      {
-        if (metadata[i] is RequiredAttribute attribute)
-        {
-          break;
-        }
-        
-      }
+      // required
+      // disabled
+      // readonly
       
       var model = new UserGroupsViewModel();
+
+      model.For = aspFor;
       
-      return View(model);
-      
+//      return View(model);
+
+      return View(aspFor);
     }
   
   }

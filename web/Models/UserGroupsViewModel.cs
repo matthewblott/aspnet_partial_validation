@@ -1,19 +1,22 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace aspnet_partial_validation
 {
   public class UserGroupsViewModel
   {
-    [Required]
-    [Display(Name = "Group")]
-    public int[] GroupIds { get; set; }
+//    [Required]
+//    [Display(Name = "Group")]
+//    public int[] GroupIds { get; set; }
     
     private readonly MultiSelectList _list;
 
     public MultiSelectList MultiSelectList => _list;
 
+    public ModelExpression For { get; set; }
+    
     public UserGroupsViewModel()
     {
       var groups = new List<GroupViewModel>

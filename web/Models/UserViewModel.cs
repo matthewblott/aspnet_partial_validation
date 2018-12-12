@@ -29,6 +29,7 @@ namespace aspnet_partial_validation
     public string PasswordCompare { get; set; }
 
     [Required]
+    [Display(Prompt = "Group")]
     public int[] GroupIds { get; set; }
 
     public UserGroupsViewModel Groups { get; set; }

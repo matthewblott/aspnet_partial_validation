@@ -24,10 +24,16 @@
 
   <vc:user-groups asp-for="GroupIds" />
   
-  @* <partial name="_Groups" model="@Model.Groups" /> *@
+  <user-groups asp-for="GroupIds"></user-groups>
+  
+  <partial name="_Groups" model="@Model.Groups" />
 
   <br>
   
   <button>Submit</button>
   
 </form>
+
+@section Scripts {
+  <partial name="_ValidationScriptsPartial" />
+}

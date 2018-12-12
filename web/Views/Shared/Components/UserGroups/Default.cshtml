@@ -1,11 +1,8 @@
+@model Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression
 @{
- // @model Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression
  // https://stackoverflow.com/questions/42855758/custom-viewcomponent-with-asp-for-as-parameter
 }
-@model UserGroupsViewModel
 
-<label asp-for="GroupIds"></label>
+<label asp-for="Model"></label>
 
-xxx
-
-<select asp-for="GroupIds" asp-items="Model.MultiSelectList"></select>
+<select asp-for="Model" multiple></select>
